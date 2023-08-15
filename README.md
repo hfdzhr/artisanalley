@@ -1,7 +1,40 @@
-# Vue 3 + Vite
+# ArtisanAlley
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+ArtisanAlley Project adalah sebuah aplikasi jual beli yang dapat menghubungkan para pembeli dan penjual yang memiliki minat di bidang karya seni dan kerajinan tangan. 
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+ ## Teknologi :
+ - Node.js
+ - Vue.js
+ - Axios
+ - Tailwind CSS
+ - Bootstrap Icon
+
+
+## Menjalankan Secara Lokal
+
+Kloning Project
+
+```bash
+  git clone https://github.com/hafidalazhar25/artisanalley.git
+```
+
+Pergi Ke Direktori File
+
+```bash
+  cd artisanalley
+```
+
+Install Denpendensi
+
+```bash
+  npm install
+```
+
+Jalankan Server
+
+```bash
+  npm run dev
+```
+

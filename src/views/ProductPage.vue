@@ -185,10 +185,6 @@
 </template>
 
 <script>
-import star from '../components/common/star.vue';
 export default {
-  components: {
-    star,
-  },
 };
 </script>

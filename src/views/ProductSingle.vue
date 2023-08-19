@@ -11,7 +11,7 @@
                 <div class="lg:order-2 lg:ml-5">
                   <div class="max-w-xl overflow-hidden ">
                     <img
-                      class="h-full w-full max-w-full ring ring-amber-950 ring-1 object-cover"
+                      class="h-full w-full max-w-full ring ring-amber-950  object-cover"
                       src="../assets/img/bowl.webp"
                       alt=""
                     />

@@ -11,7 +11,7 @@
                 <div class="lg:order-2 lg:ml-5">
                   <div class="max-w-xl overflow-hidden ">
                     <img
-                      class="h-full w-full max-w-full object-cover"
+                      class="h-full w-full max-w-full ring ring-amber-950 ring-1 object-cover"
                       src="../assets/img/bowl.webp"
                       alt=""
                     />
@@ -148,7 +148,7 @@
                 <div class="flex items-center gap-1 my-2 border border-amber-900 w-[144px]">
                   <button
                     type="button"
-                    class="w-10 h-10 leading-10 text-gray-600 hover:bg-amber-900 hover:text-white transition hover:opacity-75"
+                    class="w-10 h-10 leading-10 text-gray-600 hover:bg-amber-900 hover:text-white transition "
                   >
                     &minus;
                   </button>
@@ -162,7 +162,7 @@
 
                   <button
                     type="button"
-                    class="w-10 h-10 leading-10 hover:bg-amber-900 hover:text-white  transition hover:opacity-75"
+                    class="w-10 h-10 leading-10 hover:bg-amber-900 hover:text-white  transition "
                   >
                     &plus;
                   </button>

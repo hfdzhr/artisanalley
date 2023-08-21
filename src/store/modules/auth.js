@@ -13,9 +13,10 @@ const auth = {
       try {
         const loginUrl = 'https://ecommerce.olipiskandar.com/api/v1/auth/login';
         const response = await axios.post(loginUrl, credentials);
-        const token = response.data.token;
+        const token = response.data.access_token;
 
         // Save token to localStorage
+        console.log(token);
         localStorage.setItem('token', token);
         commit('SET_TOKEN', token);
         return true;

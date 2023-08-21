@@ -7,6 +7,7 @@ import CheckoutPage from '../views/CheckoutPage.vue'
 import CartPage from '../views/CartPage.vue'
 import ContactPage from '../views/ContactPage.vue'
 import BrandPage from '../views/BrandPage.vue'
+import CategoriesPage from '../views/CategoriesPage.vue'
 
 
 const merk = 'ArtisanAlley';
@@ -31,12 +32,6 @@ const routes = [
     meta: { title: merk + ' | ' + 'Login' },
   },
   {
-    path: '/detail',
-    name: 'Product Single',
-    component: ProductSingle,
-    meta: { title: merk + ' | ' + 'Detail' },
-  },
-  {
     path: '/checkout',
     name: 'Checkout',
     component: CheckoutPage,
@@ -59,6 +54,19 @@ const routes = [
     name: 'Brands',
     component: BrandPage,
     meta: { title: merk + ' | ' + 'Brands' },
+  },
+  {
+    path: '/detail/:slug',
+    name: 'Detail',
+    component: ProductSingle,
+    props: true,
+    meta: { title: merk + ' | ' + 'Detail' },
+  },
+  {
+    path: '/categories',
+    name: 'Categories',
+    component: CategoriesPage,
+    meta: { title: merk + ' | ' + 'Categories' },
   },
 ];
 

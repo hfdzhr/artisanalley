@@ -1,6 +1,8 @@
 import { createStore } from 'vuex';
 import auth from './modules/auth';
-import brands from "./modules/brands";
+import brands from './modules/brands';
+import products from './modules/products';
+import categories from './modules/categories';
 
 const store = createStore({
   state: {
@@ -8,8 +10,10 @@ const store = createStore({
   },
   modules: {
     auth,
-    brands
+    brands,
+    products,
+    categories,
   },
 });
 
-export default store
+export default store;

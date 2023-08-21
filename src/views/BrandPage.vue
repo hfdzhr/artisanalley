@@ -3,7 +3,7 @@
         <div class="pt-20 container mx-auto px-4 ">
           <h2 class="text-center text-3xl font-bold">Brands</h2>
           <div class="grid mt-10 grid-cols-3 gap-4">
-            <div v-for="brands in getAllBrands.data" :key="brands.id">
+            <div v-for="brands in getAllBrands.slice(0,6)" :key="brands.id">
               <div class="cursor-pointer">
                 <img
                   :src="brands.logo"

@@ -88,6 +88,13 @@
             </li>
             <li>
               <router-link
+                to="/brands     "
+                class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Merk</router-link
+              >
+            </li>
+            <li>
+              <router-link
                 to="/product"
                 class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >Tentang</router-link

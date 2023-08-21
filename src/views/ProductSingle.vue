@@ -9,9 +9,9 @@
             <div class="lg:col-span-3 lg:row-end-1">
               <div class="lg:flex lg:items-start">
                 <div class="lg:order-2 lg:ml-5">
-                  <div class="max-w-xl overflow-hidden ">
+                  <div class="max-w-xl overflow-hidden">
                     <img
-                      class="h-full w-full max-w-full ring ring-amber-950  object-cover"
+                      class="h-full w-full max-w-full ring ring-amber-950 object-cover"
                       src="../assets/img/bowl.webp"
                       alt=""
                     />
@@ -57,7 +57,7 @@
 
             <div class="lg:col-span-2 lg:row-span-2 lg:row-end-2">
               <h1 class="sm: text-2xl font-bold text-gray-900 sm:text-3xl">
-                Mangkok Kalapa
+                {{ getProduct.name }}
               </h1>
 
               <div class="mt-5 flex items-center">
@@ -122,33 +122,14 @@
                   1,209 Reviews
                 </p>
               </div>
-              <!--
-  This component uses @tailwindcss/forms
-
-  yarn add @tailwindcss/forms
-  npm install @tailwindcss/forms
-
-  plugins: [require('@tailwindcss/forms')]
-
-  @layer components {
-    .no-spinner {
-      -moz-appearance: textfield;
-    }
-
-    .no-spinner::-webkit-outer-spin-button,
-    .no-spinner::-webkit-inner-spin-button {
-      margin: 0;
-      -webkit-appearance: none;
-    }
-  }
--->
-
               <div class="pt-6">
                 <label for="Quantity">Jumlah : </label>
-                <div class="flex items-center gap-1 my-2 border border-amber-900 w-[144px]">
+                <div
+                  class="flex items-center gap-1 my-2 border border-amber-900 w-[144px]"
+                >
                   <button
                     type="button"
-                    class="w-10 h-10 leading-10 text-gray-600 hover:bg-amber-900 hover:text-white transition "
+                    class="w-10 h-10 leading-10 text-gray-600 hover:bg-amber-900 hover:text-white transition"
                   >
                     &minus;
                   </button>
@@ -157,12 +138,12 @@
                     type="number"
                     id="Quantity"
                     value="1"
-                    class="h-10 w-16 rounded bg-amber-50 border border-none  text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                    class="h-10 w-16 rounded bg-amber-50 border border-none text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                   />
 
                   <button
                     type="button"
-                    class="w-10 h-10 leading-10 hover:bg-amber-900 hover:text-white  transition "
+                    class="w-10 h-10 leading-10 hover:bg-amber-900 hover:text-white transition"
                   >
                     &plus;
                   </button>
@@ -173,13 +154,14 @@
                 class="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0"
               >
                 <div class="flex items-end">
-                  <h1 class="text-3xl font-bold">$60.50</h1>
-                  <span class="text-base">/month</span>
+                  <h1 class="text-3xl font-bold">
+                    Rp.{{ getProduct.base_price }}
+                  </h1>
                 </div>
 
                 <button
                   type="button"
-                  class="inline-flex items-center justify-center  border-2 border-transparent bg-black bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-amber-50 hover:text-black hover:ring ring-black"
+                  class="inline-flex items-center justify-center border-2 border-transparent bg-black bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-amber-50 hover:text-black hover:ring ring-black"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -258,23 +240,14 @@
               </div>
 
               <div class="mt-8 flow-root sm:mt-12">
-                <h1 class="text-3xl font-bold">Delivered To Your Door</h1>
-                <p class="mt-4">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                  accusantium nesciunt fuga.
-                </p>
-                <h1 class="mt-8 text-3xl font-bold">
-                  From the Fine Farms of Brazil
-                </h1>
-                <p class="mt-4">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-                  numquam enim facere.
-                </p>
-                <p class="mt-4">
-                  Amet consectetur adipisicing elit. Optio numquam enim facere.
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Dolore rerum nostrum eius facere, ad neque.
-                </p>
+                <div v-if="getProduct.description == null">
+                  <p>Mohon Maaf Penjual Tidak Memberi Deskripsi</p>
+                </div>
+                <div v-else>
+                  <p>
+                    {{ getProduct.description }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -285,5 +258,15 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from 'vuex';
+
+export default {
+  props: ['slug'],
+  computed: {
+    ...mapState('products', ['getProduct']),
+  },
+  mounted() {
+    return this.$store.dispatch('products/fetchProductBySlug', this.slug);
+  },
+};
 </script>

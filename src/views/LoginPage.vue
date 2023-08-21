@@ -17,8 +17,8 @@
           <div>
             <div class="relative mt-2 w-full">
               <input
-                v-model="username"
-                type="text"
+                v-model="email"
+                type="email"
                 id="email"
                 class="border-1 peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pt-4 pb-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
@@ -87,7 +87,7 @@ import { mapActions } from 'vuex';
 export default {
   data() {
     return {
-      username: '',
+      email: '',
       password: '',
     };
   },
@@ -95,7 +95,7 @@ export default {
     ...mapActions('auth', ['login']),
     async performLogin() {
       const credentials = {
-        username: this.username,
+        email: this.email,
         password: this.password,
       };
 

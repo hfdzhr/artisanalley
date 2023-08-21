@@ -13,7 +13,7 @@ const brands = {
       try {
         const urlBrand = 'https://ecommerce.olipiskandar.com/api/v1/all-brands';
         const brandApi = await axios.get(urlBrand);
-        commit('SET_BRANDS', brandApi.data);
+        commit('SET_BRANDS', brandApi.data['data']);
       } catch (error) {
         alert(error);
         console.log(error);

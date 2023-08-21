@@ -11,10 +11,8 @@ const auth = {
   actions: {
     async login({ commit }, credentials) {
       try {
-        const response = await axios.post(
-          'https://fakestoreapi.com/auth/login',
-          credentials
-        );
+        const loginUrl = 'https://ecommerce.olipiskandar.com/api/v1/auth/login';
+        const response = await axios.post(loginUrl, credentials);
         const token = response.data.token;
 
         // Save token to localStorage
@@ -33,7 +31,7 @@ const auth = {
       commit('SET_TOKEN', '');
       //   Log Token removed
       console.log('Token Removed:', token);
-      window.location.href = "/login";
+      window.location.href = '/login';
     },
   },
   mutations: {

@@ -6,6 +6,7 @@ import ProductSingle from '../views/ProductSingle.vue';
 import CheckoutPage from '../views/CheckoutPage.vue'
 import CartPage from '../views/CartPage.vue'
 import ContactPage from '../views/ContactPage.vue'
+import BrandPage from '../views/BrandPage.vue'
 
 
 const merk = 'ArtisanAlley';
@@ -52,6 +53,12 @@ const routes = [
     name: 'Contact',
     component: ContactPage,
     meta: { title: merk + ' | ' + 'Contact' },
+  },
+  {
+    path: '/brands',
+    name: 'Brands',
+    component: BrandPage,
+    meta: { title: merk + ' | ' + 'Brands' },
   },
 ];
 

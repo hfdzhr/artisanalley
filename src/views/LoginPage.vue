@@ -78,18 +78,19 @@
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
   data() {
     return {
       email: '',
       password: '',
     };
+  },
+  computed: {
+    ...mapGetters('auth', ['loginError', 'isAuthenticated']),
   },
   methods: {
     ...mapActions('auth', ['login']),
@@ -101,11 +102,16 @@ export default {
 
       const success = await this.login(credentials);
 
-      if (success) {
+      if (success && this.isAuthenticated) {
         // Redirect to the desired route on successful login
         this.$router.push('/');
       } else {
-        alert('Login Failed');
+        // Handle Login Error
+        if (this.loginError) {
+          alert(this.loginError);
+        } else {
+          alert('Login Failed');
+        }
       }
     },
   },

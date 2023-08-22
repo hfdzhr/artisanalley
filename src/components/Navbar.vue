@@ -26,7 +26,7 @@
           </div>
           <div v-else>
             <a
-              href="#home"
+              href="/register"
               type="button"
               class="text-amber-800 text-lg cursor-pointer bg-amber-50 px-6 py-3 border border-amber-800 hover:bg-amber-800 hover:text-white font-medium text-center mr-3"
             >
@@ -88,7 +88,7 @@
             </li>
             <li>
               <router-link
-                to="/brands     "
+                to="/brands"
                 class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >Merk</router-link
               >
@@ -102,7 +102,7 @@
             </li>
             <li>
               <router-link
-                to="/product"
+                to="/contact"
                 class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >Kontak</router-link
               >

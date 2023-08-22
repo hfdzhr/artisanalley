@@ -8,6 +8,7 @@ import CartPage from '../views/CartPage.vue'
 import ContactPage from '../views/ContactPage.vue'
 import BrandPage from '../views/BrandPage.vue'
 import CategoriesPage from '../views/CategoriesPage.vue'
+import RegisterPage from '../views/RegisterPage.vue'
 
 
 const merk = 'ArtisanAlley';
@@ -67,6 +68,12 @@ const routes = [
     name: 'Categories',
     component: CategoriesPage,
     meta: { title: merk + ' | ' + 'Categories' },
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterPage,
+    meta: { title: merk + ' | ' + 'Register' },
   },
 ];
 

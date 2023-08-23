@@ -3,13 +3,12 @@ import LoginPage from '../views/LoginPage.vue';
 import HomePage from '../views/HomePage.vue';
 import ProductPage from '../views/ProductPage.vue';
 import ProductSingle from '../views/ProductSingle.vue';
-import CheckoutPage from '../views/CheckoutPage.vue';
-import CartPage from '../views/CartPage.vue';
-import ContactPage from '../views/ContactPage.vue';
-import BrandPage from '../views/BrandPage.vue';
-import CategoriesPage from '../views/CategoriesPage.vue';
-import RegisterPage from '../views/RegisterPage.vue';
-import ProfilePage from '../views/ProfilePage.vue';
+import CheckoutPage from '../views/CheckoutPage.vue'
+import CartPage from '../views/CartPage.vue'
+import ContactPage from '../views/ContactPage.vue'
+import BrandPage from '../views/BrandPage.vue'
+import CategoriesPage from '../views/CategoriesPage.vue'
+
 
 const merk = 'ArtisanAlley';
 

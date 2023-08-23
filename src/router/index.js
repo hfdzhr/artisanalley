@@ -8,6 +8,8 @@ import CartPage from '../views/CartPage.vue'
 import ContactPage from '../views/ContactPage.vue'
 import BrandPage from '../views/BrandPage.vue'
 import CategoriesPage from '../views/CategoriesPage.vue'
+import RegisterPage from '../views/RegisterPage.vue'
+import ProfilePage from '../views/ProfilePage.vue'
 
 
 const merk = 'ArtisanAlley';

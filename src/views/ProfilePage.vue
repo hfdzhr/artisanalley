@@ -19,10 +19,10 @@
           <h1
             class="my-1 text-center text-xl font-bold leading-8 text-gray-900"
           >
-            {{ getUserData.name }}
+            {{ user.name }}
           </h1>
           <h3 class="font-lg text-bold text-center leading-6 text-gray-600">
-            {{ getUserData.id }}
+            {{ user.id }}
           </h3>
           <ul
             class="mt-3 divide-y bg-amber-50 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shadow"
@@ -66,12 +66,19 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters('profile', ['getUserData']),
+    user() {
+      return this.getUserData;
+    },
   },
   methods: {
     ...mapActions('profile', ['fetchUser']),
   },
-  created() {
-    this.fetchUser();
+  async mounted() {
+    const user = await this.fetchUser();
+
+    if (user) {
+      this.$store.commit('profile/SET_USER', user);
+    }
   },
 };
 </script>

@@ -15,7 +15,7 @@ ArtisanAlley Project adalah sebuah aplikasi jual beli yang dapat menghubungkan p
 Kloning Project
 
 ```bash
-  git clone https://github.com/hafidalazhar25/artisanalley.git
+  git clone https://github.com/hfdzhr/artisanalley.git
 ```
 
 Pergi Ke Direktori File

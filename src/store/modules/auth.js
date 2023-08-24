@@ -54,7 +54,7 @@ const auth = {
       commit('SET_TOKEN', '');
       //   Log Token removed
       console.log('Token Removed:', token);
-      this.$router.push('/login');
+      window.location = '/login';
     },
   },
   mutations: {

@@ -128,6 +128,7 @@
                   class="flex items-center gap-1 my-2 border border-amber-900 w-[144px]"
                 >
                   <button
+                    @click="decreaseQuantity"
                     type="button"
                     class="w-10 h-10 leading-10 text-gray-600 hover:bg-amber-900 hover:text-white transition"
                   >
@@ -137,11 +138,12 @@
                   <input
                     type="number"
                     id="Quantity"
-                    value="1"
+                    :value="quantity"
                     class="h-10 w-16 rounded bg-amber-50 border border-none text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                   />
 
                   <button
+                    @click="increaseQuantity"
                     type="button"
                     class="w-10 h-10 leading-10 hover:bg-amber-900 hover:text-white transition"
                   >
@@ -158,27 +160,53 @@
                     Rp.{{ getProduct.base_price }}
                   </h1>
                 </div>
-
-                <button
-                  type="button"
-                  class="inline-flex items-center justify-center border-2 border-transparent bg-black bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-amber-50 hover:text-black hover:ring ring-black"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="shrink-0 mr-3 h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+                <div v-if="token">
+                  <button
+                    @click="addToCart(getProduct.id)"
+                    type="button"
+                    class="inline-flex items-center justify-center border-2 border-transparent bg-black bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-amber-50 hover:text-black hover:ring ring-black"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                    />
-                  </svg>
-                  Keranjang
-                </button>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="shrink-0 mr-3 h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                      />
+                    </svg>
+                    Keranjang
+                  </button>
+                </div>
+                <div v-else>
+                  <router-link to="/login">
+                    <button
+                      type="button"
+                      class="inline-flex items-center justify-center border-2 border-transparent bg-black bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-amber-50 hover:text-black hover:ring ring-black"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="shrink-0 mr-3 h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                      </svg>
+                      Keranjang
+                    </button>
+                  </router-link>
+                </div>
               </div>
 
               <ul class="mt-8 space-y-2">
@@ -258,15 +286,53 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapState, mapGetters } from 'vuex';
 
 export default {
+  data() {
+    return {
+      token: null,
+      quantity: 1,
+    };
+  },
   props: ['slug'],
   computed: {
     ...mapState('products', ['getProduct']),
+    ...mapGetters('cart', ['getAllCart']),
   },
+  methods: {
+    ...mapActions('cart', ['fetchCart']),
+    ...mapActions('products', ['addToCart']),
+
+    async addToCart(produkId) {
+      try {
+        await this.$store.dispatch('products/addToCart', produkId);
+        this.fetchCart();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    increaseQuantity() {
+      this.quantity++;
+    },
+    decreaseQuantity() {
+      if (this.quantity > 1) {
+        this.quantity--;
+      }
+    },
+  },
+  beforeMount() {
+    this.fetchCart();
+  },
+
   mounted() {
-    return this.$store.dispatch('products/fetchProductBySlug', this.slug);
+    return this.$store
+      .dispatch('products/fetchProductBySlug', this.slug)
+      .then(() => {
+        const cekToken = localStorage.getItem('token');
+        this.token = cekToken;
+      });
   },
 };
 </script>

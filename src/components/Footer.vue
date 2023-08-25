@@ -22,7 +22,7 @@
             >
           </li>
           <li>
-            <router-link to="/about" class="mr-5 hover:underline md:mr-6"
+            <router-link to="/" class="mr-5 hover:underline md:mr-6"
               >Tentang</router-link
             >
           </li>

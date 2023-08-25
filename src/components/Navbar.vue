@@ -16,13 +16,23 @@
         </a>
         <div class="flex button space-x-4 md:order-2">
           <div v-if="isAuthenticated">
-            <a
-              @click="logout"
-              type="button"
-              class="text-white text-lg cursor-pointer bg-amber-800 px-6 py-3 hover:bg-amber-50 hover:text-amber-800 hover: border border-amber-800 font-medium text-center mr-3 md:mr-0"
-            >
-              Keluar
-            </a>
+            <div class="grid grid-cols-3 gap-4">
+              <div>
+                <a
+                  @click="logout"
+                  type="button"
+                  class="text-white text-lg cursor-pointer bg-amber-800 px-6 py-3 hover:bg-amber-50 hover:text-amber-800 hover: border border-amber-800 font-medium text-center mr-3 md:mr-0"
+                >
+                  Keluar
+                </a>
+              </div>
+              <div class=" w-5 h-5">
+                <CartBadge/>
+              </div>
+              <div>
+                <i class="fa-regular fa-circle-user"></i>
+              </div>
+            </div>
           </div>
           <div v-else>
             <a
@@ -125,15 +135,23 @@
 </style>
 
 <script>
-import store from '../store';
 import { mapActions, mapGetters } from 'vuex';
+import CartBadge from '../components/CartBadge.vue';
 
 export default {
-  computed: {
-    ...mapGetters('auth', ['isAuthenticated']),
-  },
-  methods: {
-    ...mapActions('auth', ['logout']),
-  },
+    data() {
+        return {
+            components: {
+                CartBadge,
+            },
+        };
+    },
+    computed: {
+        ...mapGetters('auth', ['isAuthenticated']),
+    },
+    methods: {
+        ...mapActions('auth', ['logout']),
+    },
+    components: { CartBadge }
 };
 </script>

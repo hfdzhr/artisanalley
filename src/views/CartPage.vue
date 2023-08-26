@@ -22,7 +22,7 @@
                       {{ cart.name }}
                     </h2>
                     <p class="mt-1 text-xs text-gray-700">
-                      {{ cart.product_id }}
+                      {{ cart.cart_id }}
                     </p>
                   </div>
                   <div
@@ -54,20 +54,22 @@
                     </div>
                     <div class="flex items-center space-x-4">
                       <p class="text-sm">Rp. {{ cart.regular_price }}</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <div @click="deleteCart(cart.cart_id)">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -129,6 +131,10 @@ export default {
   },
   methods: {
     ...mapActions('cart', ['fetchCart']),
+    ...mapActions('cart', ['removeFromCart']),
+    deleteCart(cartId) {
+      this.removeFromCart(cartId)
+    },  
     increaseQuantity() {  
       this.quantity++;
     },

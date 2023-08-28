@@ -8,6 +8,7 @@ const auth = {
   },
   getters: {
     isAuthenticated: (state) => !!state.token,
+    getUserAddress: (state) => state.userAddress
   },
   actions: {
     async login({ commit }, credentials) {
@@ -45,6 +46,21 @@ const auth = {
         alert(error);
         console.error(error);
         return false;
+      }
+    },
+    async getUserAddress({ state }) {
+      try {
+        const urlAddresses =
+          'https://ecommerce.olipiskandar.com/api/v1/user/addresses';
+        const response = await axios.get(urlAddresses, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+        return response.data;
+      } catch (error) {
+        console.error(error);
+        return null;
       }
     },
     logout({ commit }) {

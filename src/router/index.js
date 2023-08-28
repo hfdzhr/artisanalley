@@ -3,14 +3,15 @@ import LoginPage from '../views/LoginPage.vue';
 import HomePage from '../views/HomePage.vue';
 import ProductPage from '../views/ProductPage.vue';
 import ProductSingle from '../views/ProductSingle.vue';
-import CheckoutPage from '../views/CheckoutPage.vue'
-import CartPage from '../views/CartPage.vue'
-import ContactPage from '../views/ContactPage.vue'
-import BrandPage from '../views/BrandPage.vue'
-import CategoriesPage from '../views/CategoriesPage.vue'
-import RegisterPage from '../views/RegisterPage.vue'
-import ProfilePage from '../views/ProfilePage.vue'
-
+import CheckoutPage from '../views/CheckoutPage.vue';
+import CartPage from '../views/CartPage.vue';
+import ContactPage from '../views/ContactPage.vue';
+import BrandPage from '../views/BrandPage.vue';
+import CategoriesPage from '../views/CategoriesPage.vue';
+import RegisterPage from '../views/RegisterPage.vue';
+import ProfilePage from '../views/ProfilePage.vue';
+import OrderPage from '../views/OrderPage.vue';
+import TestPage from '../views/TestPage.vue';
 
 const merk = 'ArtisanAlley';
 
@@ -81,6 +82,25 @@ const routes = [
     name: 'Profile',
     component: ProfilePage,
     meta: { title: merk + ' | ' + 'Profile' },
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: CheckoutPage,
+    meta: { title: merk + ' | ' + 'Checkout' },
+  },
+  {
+    path: '/order/:orderCode',
+    name: 'Order',
+    component: OrderPage,
+    props: true,
+    meta: { title: merk + ' | ' + 'Order' },
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: TestPage,
+    meta: { title: merk + ' | ' + 'Order' },
   },
 ];
 

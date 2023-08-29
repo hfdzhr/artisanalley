@@ -12,7 +12,7 @@
             <div class="text-lg sm:text-xl xl:text-xl">
               <div class="text-gray-900">
                 <p class="mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Hubungi Kami Jika Ada Pertanyaan 
                 </p>
               </div>
             </div>
@@ -29,9 +29,9 @@
             <label class="text mb-2 block font-medium" for="email"
               >Your e-mail:</label
             ><input
-              class="w-full rounded border border-gray-300 px-3 py-2 outline-none ring-blue-500 focus:ring"
-              id="email"
-              type="email"
+              class="w-full rounded border border-gray-300 px-3 py-2 outline-none ring-amber-950 focus:ring"
+              id="subject"
+              type="subject"
               required=""
             />
           </div>
@@ -39,7 +39,7 @@
             <label class="text mb-2 block font-medium" for="subject"
               >Subject:</label
             ><input
-              class="w-full rounded border border-gray-300 px-3 py-2 outline-none ring-blue-500 focus:ring"
+              class="w-full rounded border border-gray-300 px-3 py-2 outline-none ring-amber-950 focus:ring"
               id="subject"
               type="subject"
               required=""
@@ -49,15 +49,15 @@
             <label class="text mb-2 block font-medium" for="message"
               >Message:</label
             ><textarea
-              class="h-52 w-full rounded border border-gray-300 px-3 py-2 outline-none ring-blue-500 focus:ring"
-              id="message"
+              class="h-52 w-full rounded border border-gray-300 px-3 py-2 outline-none focus:ring  ring-amber-950  "
+              id="subject"
               required=""
             ></textarea>
           </div>
           <div class="flex items-center">
             <div class="flex-1"></div>
             <button
-              class="rounded-xl bg-blue-600 px-4 py-3 text-center font-bold text-white hover:bg-blue-700"
+              class=" bg-amber-950 px-4 py-3 text-center font-bold text-white hover:bg-amber-900"
               type="submit"
             >
               Send message
@@ -65,7 +65,7 @@
           </div>
         </form>
         <div
-          class="mt-10 bg-blue-600 px-10 py-8 text-gray-100 md:mt-0 md:ml-auto"
+          class="mt-10 bg-amber-950 px-10 py-8 text-gray-100 md:mt-0 md:ml-auto"
         >
           <div class="">
             <p class="mb-4 font-medium border-b pb-2">OFFICE HOURS</p>

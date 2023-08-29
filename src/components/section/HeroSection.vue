@@ -7,9 +7,7 @@
             Mengubah Ide Menjadi Karya Indah
           </h1>
           <p class="mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda
-            eum saepe quod quidem in ea accusamus veniam odio exercitationem
-            incidunt. lorem5
+            Temukan Kemudahan dalam Berbelanja dan Berjualan Online bersama Kami!
           </p>
           <a
             href="/product"
@@ -47,6 +45,5 @@
 </style>
 
 <script>
-export default {
-};
+export default {};
 </script>

@@ -123,7 +123,7 @@
                 </p>
               </div>
               <div class="pt-6">
-                <label for="Quantity">Stock : </label>
+                <label for="Quantity">Jumlah Produk : </label>
                 <div
                   class="flex items-center gap-1 my-2 border border-amber-900 w-[144px]"
                 >
@@ -286,6 +286,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
 import { mapActions, mapState, mapGetters } from 'vuex';
 
 export default {
@@ -308,6 +309,12 @@ export default {
       try {
         await this.$store.dispatch('products/addToCart', produkId);
         this.fetchCart();
+        Swal.fire({
+          icon: 'success',
+          title: `${this.getProduct.name} Berhasil Ditambahkan ke keranjang`,
+          showConfirmButton: false,
+          timer: 1200,
+        });
       } catch (error) {
         console.error(error);
       }

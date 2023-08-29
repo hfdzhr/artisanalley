@@ -1,7 +1,7 @@
 <template>
-  <div class="cartBadge mt-4">
+  <div class="cartBadge ">
     <li
-      class="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-4 align-middle text-black hover:text-gray-700"
+      class=" block pt-2 lg:inline-block lg:mt-0 ml-10 align-middle text-black hover:text-gray-700"
     >
       <router-link to="/cart" class="relative flex">
         <svg class="flex-1 w-8 h-8 fill-current" viewbox="0 0 24 24">

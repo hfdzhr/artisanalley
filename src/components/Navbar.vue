@@ -6,31 +6,47 @@
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
-        <a
-          href="https://flowbite.com/"
-          class="logo text-amber-950 flex items-center"
-        >
-          <span class="self-center text-2xl font-semibold whitespace-nowrap"
-            >ArtisanAlley</span
-          >
-        </a>
+        <img src="../assets/img/logo.png" alt="Logo ArtisanAlley" width="180" srcset="">
         <div class="flex button space-x-4 md:order-2">
           <div v-if="isAuthenticated">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-2">
               <div>
-                <a
-                  @click="logout"
-                  type="button"
-                  class="text-white text-lg cursor-pointer bg-amber-800 px-6 py-3 hover:bg-amber-50 hover:text-amber-800 hover: border border-amber-800 font-medium text-center mr-3 md:mr-0"
+                <CartBadge />
+              </div>
+              <div class="dropdown inline-block relative">
+                <button
+                  class="bg-amber-950 text-white py-2 px-4 inline-flex items-center"
                 >
-                  Keluar
-                </a>
-              </div>
-              <div class=" w-5 h-5">
-                <CartBadge/>
-              </div>
-              <div>
-                <i class="fa-regular fa-circle-user"></i>
+                  <span class="mr-1"
+                    ><i class="fa-regular fa-user px-5"></i
+                  ></span>
+                  <svg
+                    class="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+                </button>
+                <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                  <li class="">
+                    <a
+                      class="bg-amber-100 text-amber-950 hover:bg-amber-800 hover:text-white py-2 px-4 block whitespace-no-wrap"
+                      href="/profile"
+                      ><i class="fa-solid fa-user-gear pr-1"></i> Profile</a
+                    >
+                  </li>
+                  <li class="cursor-pointer">
+                    <a
+                      class="bg-amber-100 text-amber-950 hover:bg-amber-800 hover:text-white py-2 px-4 block whitespace-no-wrap"
+                      @click="logout"
+                      ><i class="fa-solid fa-arrow-right-from-bracket pr-1"></i
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -98,20 +114,6 @@
             </li>
             <li>
               <router-link
-                to="/brands"
-                class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >Merk</router-link
-              >
-            </li>
-            <li>
-              <router-link
-                to="/product"
-                class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >Tentang</router-link
-              >
-            </li>
-            <li>
-              <router-link
                 to="/contact"
                 class="block py-2 pl-3 pr-4 text-amber-950 rounded md:hover:text-amber-700 md:p-0 text-xl dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >Kontak</router-link
@@ -132,26 +134,61 @@
 .button {
   font-family: 'Belleza', sans-serif;
 }
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* 
+Note: you can also do this with Tailwind's group-hover. Unfortunately Tailwind CDN version does not include this variant, so you will have to adjust the tailwind.config.js file in your own project.
+
+Example with group-hover: https://codesandbox.io/s/tailwind-dropdown-with-group-hover-gm9k9
+ */
 </style>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import CartBadge from '../components/CartBadge.vue';
+import { Dropdown } from 'flowbite';
 
 export default {
-    data() {
-        return {
-            components: {
-                CartBadge,
-            },
-        };
-    },
-    computed: {
-        ...mapGetters('auth', ['isAuthenticated']),
-    },
-    methods: {
-        ...mapActions('auth', ['logout']),
-    },
-    components: { CartBadge }
+  data() {
+    return {
+      components: {
+        CartBadge,
+      },
+    };
+  },
+  computed: {
+    ...mapGetters('auth', ['isAuthenticated']),
+  },
+  methods: {
+    ...mapActions('auth', ['logout']),
+  },
+
+  components: { CartBadge },
+  mounted() {
+    const $targetEl = document.getElementById('dropdownMenu');
+
+    // set the element that trigger the dropdown menu on click
+    const $triggerEl = document.getElementById('dropdownButton');
+
+    // options with default values
+    const options = {
+      placement: 'bottom',
+      triggerType: 'click',
+      offsetSkidding: 0,
+      offsetDistance: 10,
+      delay: 300,
+      ignoreClickOutsideClass: false,
+    };
+
+    /*
+     * $targetEl: required
+     * $triggerEl: required
+     * options: optional
+     */
+    const dropdown = new Dropdown($targetEl, $triggerEl, options);
+  },
 };
 </script>

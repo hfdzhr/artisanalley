@@ -123,7 +123,7 @@
                 </p>
               </div>
               <div class="pt-6">
-                <label for="Quantity">Jumlah : </label>
+                <label for="Quantity">Stock : </label>
                 <div
                   class="flex items-center gap-1 my-2 border border-amber-900 w-[144px]"
                 >

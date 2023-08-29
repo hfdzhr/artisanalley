@@ -30,7 +30,7 @@
                 <span>Email : </span>
                 <span class="ml-auto"
                   ><span class="py-1 px-2 text-xs font-medium text-black">{{
-                    getUserData.email
+                    user.email
                   }}</span></span
                 >
               </li>
@@ -39,23 +39,23 @@
                 <span class="ml-auto"
                   ><span
                     class="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700"
-                    >{{ getUserData.balance }}</span
+                    >{{ user.balance }}</span
                   ></span
                 >
               </li>
               <li class="flex items-center py-3 text-sm">
                 <span>Phone : </span>
-                <div v-if="getUserData.phone == null">
+                <div v-if="user.phone == null">
                   <span class="ml-auto">-</span>
                 </div>
                 <div v-else>
-                  <span class="ml-20">{{ getUserData.phone }}</span>
+                  <span class="ml-20">{{ user.phone }}</span>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        <div class="mt-10">
+        <div class="mt-10 grid grid-rows-2">
           <div v-for="item in address.data">
             <div
               class="block p-6 my-3 bg-amber-50 border border-amber-950 rounded-lg shadow hover:bg-amber-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -101,7 +101,7 @@ export default {
     ...mapActions('profile', ['fetchUser']),
     ...mapActions('auth', ['getUserAddress']),
   },
-  async mounted() {
+  async created() {
     this.getUserAddress();
     const user = await this.fetchUser();
 

@@ -7,7 +7,7 @@
         >
           <div class="mx-2 pt-12 text-center md:mx-auto md:w-2/3 md:pb-12">
             <h1 class="mb-4 text-3xl font-black sm:text-5xl xl:text-6xl">
-              Contact us
+              Kontak Kami
             </h1>
             <div class="text-lg sm:text-xl xl:text-xl">
               <div class="text-gray-900">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div
-        class="mx-auto mb-20 flex w-full max-w-screen-lg flex-col overflow-hidden  text-gray-900 md:flex-row md:border md:shadow-lg"
+        class="mx-auto mb-20 flex w-full max-w-screen-lg flex-col overflow-hidden   text-gray-900 md:flex-row md:border md:shadow-lg"
       >
         <form
           class="mx-auto w-full max-w-xl border-gray-200 px-10 py-8 md:px-8"

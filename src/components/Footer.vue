@@ -22,11 +22,6 @@
             >
           </li>
           <li>
-            <router-link to="/" class="mr-5 hover:underline md:mr-6"
-              >Tentang</router-link
-            >
-          </li>
-          <li>
             <router-link to="/contact" class="mr-5 hover:underline md:mr-6"
               >Kontak</router-link
             >
